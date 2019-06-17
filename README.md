@@ -21,6 +21,17 @@ For Ubuntu 18.04, this was:
 apt-get install dotnet-sdk-2.2
 ```
 
+### API
+
+```
+{"id":3,"name":"asdf","isComplete":false}
+
+GET /api/todo
+PUT /api/todo
+POST /api/todo
+DELETE /api/todo
+```
+
 ### Upstream
 
 Source code is derived from [TodoApi](https://github.com/aspnet/AspNetCore.Docs)
