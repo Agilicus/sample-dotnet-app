@@ -4,7 +4,7 @@
 
 ```
 docker build -t todo .
-docker run -p 5000:5000 --rm -it todo
+docker run -p 5000:80 --rm -it todo
 ```
 
 (now open browser to https://localhost:5000)
