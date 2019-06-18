@@ -1,3 +1,9 @@
+FROM node:latest as angular
+COPY TodoApp /app
+WORKDIR /app
+RUN npm ci \
+ && node_modules/.bin/ng build
+
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine AS build
 COPY TodoApi /app
 
@@ -11,5 +17,6 @@ LABEL maintainer="don@agilicus.com"
 
 WORKDIR /app
 COPY --from=build /app/out ./
+COPY --from=angular /app/dist/TodoApp ./wwwroot
 ENTRYPOINT ["dotnet", "TodoApi.dll"]
 
